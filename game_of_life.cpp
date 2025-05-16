@@ -19,7 +19,7 @@ int game_of_life::how_many_neighbours(int i, int j)
         {
             if (i+x >= 0 && i+x < ROWS && j+y >= 0 && j+y < COLS)
             {
-                if (x != 0 && y != 0)
+                if (x != 0 || y != 0)
                 {
                     neighbours += (_generation[x+i][y+j] == true) ? 1 : 0;
                 }
@@ -85,7 +85,7 @@ void game_of_life::draw()
     {
         for (int j = 0; j < COLS; j++)
         {
-            cout << (_generation[i][j] ? "*" : "_") << " ";
+            cout << (_generation[i][j] ? "#" : ".") << " ";
         }
         cout << endl;
     }
